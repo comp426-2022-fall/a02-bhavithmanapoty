@@ -16,20 +16,36 @@ if (args.h) {
 var timezone = moment.tz.guess();
 
 //Latitude and Longitude
-var latitude;
-var longitude;
+var latitude = 0.0;
+var longitude = 0.0;
 
-if (args.n) {
+if (args.n && !args.s) {
 	latitude = args.n;
 }
-if (args.s) {
+else if (args.s && !args.n) {
 	latitude = args.s * -1;
 }
-if (args.w) {
+else{
+	if(latitude == 0.0)
+		console.log("Using default latitude");
+	else{
+		console.log("Latitude must be in range");
+		process.exit(0);
+	}
+}
+if (args.w && !args.e) {
 	longitude = args.w * -1;
 }
-if (args.e) {
+else if (args.e && !args.w) {
 	longitude = args.e;
+}
+else{
+	if(longitude == 0)
+		console.log("Using default longitude");
+	else{
+		console.log("Longitude must be in range");
+		process.exit(0);
+	}
 }
 if (args.t) {
     timezone = args.t;
