@@ -16,8 +16,8 @@ if (args.h) {
 var timezone = moment.tz.guess();
 
 //Latitude and Longitude
-var latitude = 0.0;
-var longitude = 0.0;
+var latitude;
+var longitude;
 
 if (args.n && !args.s) {
 	latitude = args.n;
